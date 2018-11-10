@@ -11,7 +11,7 @@ First thing first.  The 3 mm stereo socket on Echo Dot has a mechanical switch w
 
 We need to then decide how to power our circuit.  There are three options to power the circuit - (a) having its own power source, or (b) draw power from the stereo/amplifier or (c) draw power from Echo Dot.  
 
-The option of using a separate power might be the safest.  As we won't accenditally fried our nice stereo or Echo Dot.  However, it also means it requires one additional wall power outlet and more components to supply/regulate the voltage for the circuit.  We probably don't want to use the power from stereo/amplifier.  If we do that, then we cannot turn off the stereo/amplifier.  Otherwise, the circuit will stop working.  The conclusion: it is best to use Echo Dot to provide the power.
+The option of using a separate power might be the safest.  As we won't accenditally fry our nice stereo or Echo Dot.  However, it also means it requires one additional wall power outlet and more components to supply/regulate the voltage for the circuit.  We probably don't want to use the power from stereo/amplifier.  If we do that, then we cannot turn off the stereo/amplifier.  Otherwise, the circuit will stop working.  The conclusion: it is best to use Echo Dot to provide the power.
 
 With the porwer source decided, we then need to consider what to use as an indicator for switching on/off the internal speaker.  Most of the stereo or amplifier has a display panel with input indicator.  We can use that to determine whether or not we need to close the circuit of Echo Dot's mechanical sensor switch.
 
@@ -35,13 +35,13 @@ The end result - when the input indicator is off (i.e. external stereo / amplifi
 1. Wiring up with breadboard to make sure the circuit works
 ![](images/01_breadboard_wire_up.JPG)
 
-2. Solder the wires for ground (black), +5V (red), mechanical sensor V-hi (green), V-lo (dark blue).  Note, the +5V is a bit hard to solder on.  It requires a lot of patience.  There are a lot of places provide ground.  Use whichever is easier to solder on.
+2. The jack sensor has 2 solder base on the circuit board located on the lower right of the image. There are a lot of places provide ground.  Use whichever is easier to solder on.  The +5 is the tiniest solder joint among them.  It is located at the top right of the cluster of four solder joints (reference the photo below) near the ground solder joints of the micro USB socket.  This one is hard to solder on and requires some patience and skill.  Double check the voltage of those solder joints with a multimeter before soldering.  Solder the wires for ground (black), +5V (red), mechanical sensor V-hi (green), V-lo (dark blue) and drill a hole on the case to run the wires through. 
 ![](images/02_echo_dot_wiring.JPG)
 
-3. Remember to put the heat-shrink tube first before soldering the connectors.
+3. I also soldered on pin headers to those wires to make it easier to connect and disconnect to and from Echo Dot and the stereo/amplifier.  If you plan to use heat-shrink tube to secure the connectors, remember to put the tube in first before soldering the connectors.
 ![](images/03_echo_dot_reassembled.JPG)
 
-4. Control panel of the stereo.
+4. I took apart the stereo and used a multimeter to find the LED solder joints on the control panel of the stereo.  I soldered some different color wires from those joints then ran it outside of the stereo. I then make a connector for all those wires.  In the future, I can use a micro controller and perhaps an IR LED to control the stereo trhough Echo's voice interface.  The micro controller can detect if the stereo was on with expected input selected.  If not, I can send IR signal to control the stereo accordingly.
 ![](images/04_stereo_control_panel.JPG)
 
 5. Close up view of the soldering places to the LED's on the control panel.
