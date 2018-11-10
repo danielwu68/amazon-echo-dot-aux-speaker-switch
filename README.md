@@ -25,6 +25,11 @@ I used 2 photocouplers (PC817) here - one to take input from the input indicator
 
 Another hurdle is that we need to open the circuit when the correct input indicator is on.  However, the photocoupler closes the circuit when the input is high - which is the opposite of what we need.  So I have to use a hex inverter (SN74HC04N) to reverse the signal.  There is a 10K pull down resister to ensure the logic 0/1 can be properly read by the hex inverter.
 
+The end result - when the input indicator is off (i.e. external stereo / amplifier is off or the input selected is not connected to Echo Dot), the stereo jack detecter circuit will be closed.  This makes the sound coming out from Echo Dot so you can hear and interact with it.  When the right input indicator is lit, the detecter circuit will become open thus the sound will be coming out from the nice speakers.
+
+![](images/AutoIntSpkSwitch-wiring.png)
+![](images/AutoIntSpkSwitch-prototype.JPG)
+
 ## Photos:
 
 1. Wiring up with breadboard to make sure the circuit works
