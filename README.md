@@ -27,12 +27,27 @@ Another hurdle is that we need to open the circuit when the correct input indica
 
 ## Photos:
 
+1. Wiring up with breadboard to make sure the circuit works
 ![](images/01_breadboard_wire_up.JPG)
+
+2. Solder the wires for ground (black), +5V (red), mechanical sensor V-hi (green), V-lo (dark blue).  Note, the +5V is a bit hard to solder on.  It requires a lot of patience.  There are a lot of places provide ground.  Use whichever is easier to solder on.
 ![](images/02_echo_dot_wiring.JPG)
+
+3. Remember to put the heat-shrink tube first before soldering the connectors.
 ![](images/03_echo_dot_reassembled.JPG)
+
+4. Control panel of the stereo.
 ![](images/04_stereo_control_panel.JPG)
+
+5. Close up view of the soldering places to the LED's on the control panel.
 ![](images/05_stereo_control_panel_close_up.JPG)
+
+6. Tests the votage from the input indicator LED.
 ![](images/06_stereo_input_indicator_voltage.JPG)
+
+7. Transfer the breadboard to a prototype board and soldering up everything.  Then wire it up to the stereo.
 ![](images/07_final_wire_up.JPG)
+
+8. Close up view of the circuit on the prototype board.
 ![](images/08_close_up.JPG)
 
