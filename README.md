@@ -11,17 +11,17 @@ First thing first.  The 3 mm stereo socket on Echo Dot has a mechanical switch w
 
 We need to then decide how to power our circuit.  There are three options to power the circuit - (a) having its own power source, or (b) draw power from the stereo/amplifier or (c) draw power from Echo Dot.  
 
-The option of using a separate power might be the safest.  As we won't accenditally fry our nice stereo or Echo Dot.  However, it also means it requires one additional wall power outlet and more components to supply/regulate the voltage for the circuit.  We probably don't want to use the power from stereo/amplifier.  If we do that, then we cannot turn off the stereo/amplifier.  Otherwise, the circuit will stop working.  The conclusion: it is best to use Echo Dot to provide the power.
+The option of using a separate power might be the safest.  As we won't accidentally fry our nice stereo or Echo Dot.  However, it also means it requires one additional wall power outlet and more components to supply/regulate the voltage for the circuit.  We probably don't want to use the power from stereo/amplifier.  If we do that, then we cannot turn off the stereo/amplifier.  Otherwise, the circuit will stop working.  The conclusion: it is best to use Echo Dot to provide the power.
 
-With the porwer source decided, we then need to consider what to use as an indicator for switching on/off the internal speaker.  Most of the stereo or amplifier has a display panel with input indicator.  We can use that to determine whether or not we need to close the circuit of Echo Dot's mechanical sensor switch.
+With the power source decided we then need to consider what to use as an indicator for switching on/off the internal speaker.  Most of the stereo or amplifier has a display panel with input indicator.  We can use that to determine whether or not we need to close the circuit of Echo Dot's mechanical sensor switch.
 
-The last thing is that we need to isolate the circuit of stereo's input indicator and the auto switch circuit.  Since the auto switch circuit uses Echo Dot's power, it will need to have the common ground with Echo Dot.  It will be more complicated if we don't separate those circuit or worse, it might cause damage to either the stereo/amplifier or Echo Dot or both.  
+The last thing is that we need to isolate the circuit of stereo's input indicator and the auto switch circuit.  Since the auto switch circuit uses Echo Dot's power, it will need to have the common ground with Echo Dot.  It will be more complicated if we don't separate those circuits, or worse it might cause damage to either the stereo/amplifier, or Echo Dot, or both.  
 
 Here is the schematic of the design:
 
 ![External Speaker Auto Switch Schematic](images/AutoIntSpkSwitch-schematic.png)
 
-I used 2 photocouplers (PC817) here - one to take input from the input indicator LED and the other to close the detector circuit.  The photocoupler is basically a tiny LED and a photo resistor in one package.  So we need to put a current limiting resistor to avoid burinig out the LED.  Normally the 220 Ohm registor will do.   However, notice the resistor for the STEREO_LED_IN is much higher (4.7K Ohm).  This is so that only enough current is diverted from the indicator to trigger the speaker switch but not too much that making the indicator too dim.  It might be necessary to try a few different resistor values for best result.
+I used 2 photocouplers (PC817) here - one to take input from the input indicator LED and the other to close the detector circuit.  The photocoupler is basically a tiny LED and a photo resistor in one package.  So we need to put a current limiting resistor to avoid burning out the LED.  Normally the 220 ohm registor will do.   However, notice the resistor for the STEREO_LED_IN is much higher (4.7K Ohm).  This is so that only enough current is diverted from the indicator to trigger the speaker switch but not too much that making the indicator too dim.  It might be necessary to try a few different resistor values for best result.
 
 Another hurdle is that we need to open the circuit when the correct input indicator is on.  However, the photocoupler closes the circuit when the input is high - which is the opposite of what we need.  So I have to use a hex inverter (SN74HC04N) to reverse the signal.  There is a 10K pull down resister to ensure the logic 0/1 can be properly read by the hex inverter.
 
@@ -41,7 +41,7 @@ The end result - when the input indicator is off (i.e. external stereo / amplifi
 3. I also soldered on pin headers to those wires to make it easier to connect and disconnect to and from Echo Dot and the stereo/amplifier.  If you plan to use heat-shrink tube to secure the connectors, remember to put the tube in first before soldering the connectors.
 ![](images/03_echo_dot_reassembled.JPG)
 
-4. I took apart the stereo and used a multimeter to find the LED solder joints on the control panel of the stereo.  I soldered some different color wires from those joints then ran it outside of the stereo. I then make a connector for all those wires.  In the future, I can use a micro controller and perhaps an IR LED to control the stereo trhough Echo's voice interface.  The micro controller can detect if the stereo was on with expected input selected.  If not, I can send IR signal to control the stereo accordingly.
+4. I took apart the stereo and used a multimeter to find the LED solder joints on the control panel of the stereo.  I soldered some different color wires from those joints then ran it outside of the stereo. I then make a connector for all those wires.  In the future, I can use a micro controller and perhaps an IR LED to control the stereo through Echo's voice interface.  The micro controller can detect if the stereo was on with expected input selected.  If not, I can send IR signal to control the stereo accordingly.
 ![](images/04_stereo_control_panel.JPG)
 
 5. Close up view of the soldering places to the LED's on the control panel.
