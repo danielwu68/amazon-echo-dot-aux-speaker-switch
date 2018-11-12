@@ -36,15 +36,15 @@ The end result - when the input indicator is off (i.e. external stereo / amplifi
 ![](images/AutoIntSpkSwitch-prototype.JPG)
 
 ## Auto switch circuit version 2:
-The circuit can also be implemented with a simple NOT-gate using an NPN transistor instead of a hex inverter.  It is cheaper and more compact using a transistor then the hex inverter.  There are a lot of resources discuss in detail on how a NOT-gate work.  I am not repeating it here.    
+The circuit can also be implemented with a simple NOT-gate using an NPN transistor instead of a hex inverter.  It is cheaper and more compact using a transistor then a hex inverter.  There are a lot of resources discuss in detail on how a NOT-gate work.  I am not repeating it here.    
 
 ![](images/AutoIntSpkSwitch-v2-schematic.png)
 
-Here, a 2N2222 NPN transistor is used.  The emittor of the transistor leg is connected to the pin 1 of the photocoupler PCC817; the collector is connected to the pin 2.  The base of the transistor is connected to the output of the first photocoupler - pin 3.  I used a current limiting resistor to 1K Ohm in between the Vcc and collector of the transistor.  I used another 1K Ohm resistor from the output pin of the first photocoupler to the base of the transistor.
+Here, a 2N2222 NPN transistor is used.  The emittor of the transistor leg is connected to the pin 1 of the photocoupler PCC817 (OK1); the collector is connected to the pin 2.  The base of the transistor is connected to the output pin 3 of the other photocoupler (OK2).  I used a current limiting resistor to 1K Ohm in between the Vcc and collector of the transistor.  I used another 1K Ohm resistor from the output pin of the photocoupler (OK2) to the base of the transistor.
 
-When the stereo's input indicator LED is on, the output of the first photocoupler on pin 3 will be high.  It will make the resistance between the collector and the emittor of the transistor much lower than the second photocoupler.  The current will go through transistor instead of the photocoupler thus opens the Echo Dot's detector circuit.  The sound will come out from the stereo speakers.
+When the stereo's input indicator LED is on, the output pin 3 of the photocoupler (OK2) will be high.  It will make the resistance between the collector and the emittor of the transistor much lower than the photocoupler (OK1).  The current will go through transistor instead of the photocoupler (OK1) thus opens the Echo Dot's detector circuit.  Echo Dot will use the external speaker.
 
-When the stereo's input indicator LED is off, the resistance of the transistor become much higher than the second photocoupler.  The current will instead flow through the second photocoupler which effectively closing the detector circuit.  The sound will then come out from Echo Dot's internal speaker.
+When the stereo's input indicator LED is off, the resistance of the transistor become much higher than the photocoupler (OK1).  The current will instead flow through the photocoupler (OK2) which effectively closing the detector circuit.  The sound will then come out from Echo Dot's internal speaker.
 
 ![](images/AutoIntSpkSwitch-v2-wiring.png)
 ![](images/AutoIntSpkSwitch-v2.JPG)
