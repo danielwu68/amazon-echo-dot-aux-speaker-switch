@@ -7,11 +7,15 @@ Amazon Echo Dot has a 3.5mm stereo jack which allows it to hook up with some ste
 ## Desiging a simple auto switch circuit:
 There are some considerations in designing such circuit:
 
-First thing first.  The 3 mm stereo socket on Echo Dot has a mechanical switch which when the stereo jack is inserted, circuit become open.  This allows Echo Dot to sense whether a jack was inserted - when the circuit is open, Echo Dot will send audio signal to the external speaker; when the circuit is close, Echo Dot will use the internal speaker.  Since we want to leave the jack in the socket, we need something to close the circuit base on whether or not the stereo is on and the correct input is selected.
+First of all, the 3 mm stereo socket on Echo Dot has a mechanical switch which when the stereo jack is inserted, the circuit become open.  This allows Echo Dot to sense whether a jack was inserted - when the circuit is open, Echo Dot will send audio signal to the external speaker; when the circuit is close, Echo Dot will use the internal speaker.  Since we want to leave the jack in the socket, we need something to close the circuit base on whether or not the stereo is on and the correct input is selected.
 
-We need to then decide how to power our circuit.  There are three options to power the circuit - (a) having its own power source, or (b) draw power from the stereo/amplifier or (c) draw power from Echo Dot.  
+Secondly, the auto switch circuit need a power source.  There are three options to power the circuit - (a) having its own power source, or (b) draw power from the stereo/amplifier or (c) draw power from Echo Dot.  
 
-The option of using a separate power might be the safest.  As we won't accidentally fry our nice stereo or Echo Dot.  However, it also means it requires one additional wall power outlet and more components to supply/regulate the voltage for the circuit.  We probably don't want to use the power from stereo/amplifier.  If we do that, then we cannot turn off the stereo/amplifier.  Otherwise, the circuit will stop working.  The conclusion: it is best to use Echo Dot to provide the power.
+The option of using a separate power might be the safest.  As we won't accidentally fry our nice stereo or Echo Dot.  However, it also means it requires one additional wall power outlet and more components to supply/regulate the voltage for the circuit.  I'd like to avoid it if possible to avoid adding more clutter near the stereo.  
+
+Using the power from stereo/amplifier may not be a good idea.  If we do that, then we cannot turn off the stereo/amplifier.  Otherwise, the circuit will stop working.  
+
+Echo Dot uses a micro USB connector for power, there should be a 5 volt input near the micro USB socket.  As we have to open Echo Dot up to solder some wires to the 3.5 mm jack detecting circuit anyway, this seems to be the best choice.  
 
 With the power source decided we then need to consider what to use as an indicator for switching on/off the internal speaker.  Most of the stereo or amplifier has a display panel with input indicator.  We can use that to determine whether or not we need to close the circuit of Echo Dot's mechanical sensor switch.
 
